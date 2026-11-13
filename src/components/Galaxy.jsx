@@ -79,9 +79,9 @@ vec3 hsv2rgb(vec3 c) {
 float Star(vec2 uv, float flare, vec2 radial, float invReach) {
 #ifdef WARP
   float along = dot(uv, radial);
-  float d = sqrt(max(dot(uv, uv) - uSquash * along * along, 0.0));
+  float d = max(sqrt(max(dot(uv, uv) - uSquash * along * along, 0.0)), 0.0001);
 #else
-  float d = length(uv);
+  float d = max(length(uv), 0.0001);
 #endif
   float m = uStarGlow / d;
   float rays = smoothstep(0.0, 1.0, 1.0 - abs(uv.x * uv.y * 1000.0));
@@ -89,9 +89,9 @@ float Star(vec2 uv, float flare, vec2 radial, float invReach) {
   uv *= MAT45;
   rays = smoothstep(0.0, 1.0, 1.0 - abs(uv.x * uv.y * 1000.0));
   m += rays * 0.3 * flare * uFlareGain;
-  m *= smoothstep(1.0, 0.2, d * invReach);
+  m *= 1.0 - smoothstep(0.2, 1.0, d * invReach);
 #ifdef WARP
-  m *= mix(1.0, smoothstep(1.0, 0.55, length(uv) * invReach), min(uWarp * 4.0, 1.0));
+  m *= mix(1.0, (1.0 - smoothstep(0.55, 1.0, length(uv) * invReach)), min(uWarp * 4.0, 1.0));
 #endif
   return m;
 }
@@ -181,11 +181,14 @@ void main() {
     float i = float(k) / layers;
     float depth = fract(i + uDepth);
     float scale = mix(20.0 * uDensity, 0.5 * uDensity, depth);
-    float fade = depth * smoothstep(1.0, 0.9, depth);
+    float fade = depth * (1.0 - smoothstep(0.9, 1.0, depth));
     vec2 offset = vec2(i * 453.32);
     col += StarLayer(uv * scale + offset, radial, repelAt * scale + offset, push * scale, 1.0 / (scale * radius)) * fade;
   }
   col *= uReveal;
+  // Protección: si la GPU produce NaN/Inf el canvas se pintaba como una capa blanca opaca
+  if (any(isnan(col)) || any(isinf(col))) col = vec3(0.0);
+  col = clamp(col, 0.0, 8.0);
 
   if (uMode > 1.5) {
     vec3 lit = col * smoothstep(0.0, 0.3, length(col));
