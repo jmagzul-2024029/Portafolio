@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import Header from './components/Header';
 import Hero from './sections/Hero';
 import About from './sections/About';
@@ -13,9 +12,17 @@ import './App.css'
 function App() {
   return (
     <div className="app-container">
-      {/* Wrapper para fijarlo al fondo */}
-      <div className="galaxy-container">
+      {/* Fondo galaxia animado */}
+      <div className="galaxy-backdrop" aria-hidden="true">
         <Galaxy />
+      </div>
+
+      {/* Halos de color y malla sutil */}
+      <div className="backdrop" aria-hidden="true">
+        <span className="aurora aurora-1" />
+        <span className="aurora aurora-2" />
+        <span className="aurora aurora-3" />
+        <span className="grid-mesh" />
       </div>
 
       <Header />

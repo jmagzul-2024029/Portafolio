@@ -1,16 +1,33 @@
-# React + Vite
+# Portafolio — Jorge Magzul
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Portafolio digital de desarrollador de software (web & mobile), construido con **React 19** y **Vite**.
 
-Currently, two official plugins are available:
+🔗 **Sitio en vivo:** _agrega aquí tu enlace de Vercel_
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Secciones
+Inicio · Sobre mí · Habilidades · Experiencia · Proyectos · Contacto
 
-## React Compiler
+## Ejecutar en local
+```bash
+git clone https://github.com/jmagzul-2024029/Portafolio.git
+cd Portafolio
+npm install
+npm run dev
+```
+Otros scripts: `npm run build`, `npm run preview`, `npm run lint`.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Estructura
+```
+src/
+├── components/   Header, Footer, ProjectCard, Galaxy (fondo WebGL)
+├── sections/     Hero, About, Skills, Experience, Projects, Contact
+└── App.jsx
+```
 
-## Expanding the ESLint configuration
+## Personalizar
+- Proyectos: `src/sections/Projects.jsx`
+- Habilidades: `src/sections/Skills.jsx`
+- CV: coloca tu archivo en `public/cv.pdf`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Contacto
+jorgemagzul10@gmail.com · [GitHub](https://github.com/jmagzul-2024029) · [LinkedIn](https://www.linkedin.com/in/jorge-magzul-953925423/)

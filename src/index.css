@@ -1,1 +1,125 @@
-/*Archivo vacío*/
+/* =========================================================
+   Tokens y estilos base
+   ========================================================= */
+:root {
+  --bg: #05070f;
+  --bg-soft: #080d1a;
+  --surface: rgba(16, 25, 45, 0.66);
+  --surface-strong: rgba(18, 28, 50, 0.92);
+  --border: rgba(148, 163, 184, 0.16);
+  --border-soft: rgba(148, 163, 184, 0.1);
+  --text: #e8eef8;
+  --muted: #94a3b8;
+  --muted-strong: #c3d0e2;
+
+  --cyan: #38bdf8;
+  --cyan-soft: #7dd3fc;
+  --violet: #a78bfa;
+  --pink: #f472b6;
+  --mint: #34d399;
+  --amber: #fbbf24;
+
+  --gradient: linear-gradient(120deg, #38bdf8 0%, #818cf8 48%, #c084fc 100%);
+  --gradient-soft: linear-gradient(120deg, rgba(56, 189, 248, 0.18), rgba(167, 139, 250, 0.18));
+
+  --font-body: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-display: 'Sora', 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Cascadia Code', Consolas, monospace;
+
+  --shadow-card: 0 24px 60px rgba(2, 6, 16, 0.55);
+  --shadow-glow: 0 0 40px rgba(56, 189, 248, 0.22);
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --header-height: 76px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 12px);
+  background-color: var(--bg);
+}
+
+body {
+  min-height: 100vh;
+  font-family: var(--font-body);
+  line-height: 1.65;
+  color: var(--text);
+  background-color: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(56, 189, 248, 0.3);
+  color: #fff;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #05070f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1d4ed8, #7c3aed);
+  border-radius: 999px;
+  border: 2px solid #05070f;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #38bdf8, #a78bfa);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--cyan);
+  outline-offset: 3px;
+}
+
+/* Accesibilidad: menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

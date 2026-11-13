@@ -1,4 +1,8 @@
 // src/sections/Projects.jsx
+import ProjectCard from '../components/ProjectCard';
+import Reveal from '../components/Reveal';
+import SectionHeading from '../components/SectionHeading';
+
 function Projects() {
     const projectsList = [
         {
@@ -10,7 +14,7 @@ function Projects() {
         },
         {
             title: "Sistema de Gestión Bancaria",
-            description: "Aplicación orientada a la gestión de cuentas, transacciones y control de usuarios.",
+            description: "Proyecto colaborativo en equipo para la gestión de cuentas, transacciones y control de usuarios.",
             techs: ["Java", "Spring Boot", "PostgreSQL"],
             github: "https://github.com/ocumatz-2021660/Sistema_Bancario.git",
             demo: "#"
@@ -19,24 +23,19 @@ function Projects() {
 
     return (
         <section id="projects" className="section">
-            <h2>Proyectos Destacados</h2>
+            <SectionHeading
+                index="04"
+                eyebrow="Trabajo reciente"
+                title="Proyectos"
+                highlight="destacados"
+                description="Una selección de aplicaciones que he diseñado y desarrollado."
+            />
+
             <div className="projects-grid">
                 {projectsList.map((project, index) => (
-                    <div key={index} className="project-card">
-                        <h3>{project.title}</h3>
-                        <p>{project.description}</p>
-                        <div className="tech-tags">
-                            {project.techs.map((tech, idx) => (
-                                <span key={idx} className="tag">{tech}</span>
-                            ))}
-                        </div>
-                        <div className="project-links">
-                            <a href={project.github} target="_blank" rel="noopener noreferrer">GitHub</a>
-                            {project.demo !== "#" && (
-                                <a href={project.demo} target="_blank" rel="noopener noreferrer">Demo en Vivo</a>
-                            )}
-                        </div>
-                    </div>
+                    <Reveal key={project.title} delay={index * 120}>
+                        <ProjectCard {...project} index={index} />
+                    </Reveal>
                 ))}
             </div>
         </section>
