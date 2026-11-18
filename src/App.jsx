@@ -6,18 +6,13 @@ import Experience from './sections/Experience';
 import Projects from './sections/Projects';
 import Contact from './sections/Contact';
 import Footer from './components/Footer';
-import Galaxy from './components/Galaxy';
 import './App.css'
 
 function App() {
   return (
     <div className="app-container">
-      {/* Fondo galaxia animado */}
-      <div className="galaxy-backdrop" aria-hidden="true">
-        <Galaxy />
-      </div>
 
-      {/* Halos de color y malla sutil */}
+      {/* malla/cuadros de fondo */}
       <div className="backdrop" aria-hidden="true">
         <span className="aurora aurora-1" />
         <span className="aurora aurora-2" />

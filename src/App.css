@@ -1,34 +1,4 @@
-/* =========================================================
-   Estructura general y fondo animado
-   ========================================================= */
-.app-container {
-  position: relative;
-  min-height: 100vh;
-  isolation: isolate;
-}
-
-.galaxy-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 0;
-  opacity: 0.55;
-  pointer-events: none;
-}
-
-.galaxy-backdrop .galaxy-container {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.galaxy-canvas {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
-/* Halos de color y malla de fondo */
+/*  malla de fondo */
 .backdrop {
   position: fixed;
   inset: 0;
@@ -92,9 +62,11 @@ main {
   0% {
     transform: translate3d(0, 0, 0) scale(1);
   }
+
   50% {
     transform: translate3d(4%, 6%, 0) scale(1.08);
   }
+
   100% {
     transform: translate3d(-3%, -4%, 0) scale(0.96);
   }
@@ -317,20 +289,24 @@ main {
 }
 
 @keyframes gradientShift {
+
   0%,
   100% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
 }
 
 @keyframes floatY {
+
   0%,
   100% {
     transform: translateY(0);
   }
+
   50% {
     transform: translateY(-14px);
   }
@@ -349,11 +325,13 @@ main {
 }
 
 @keyframes pulseDot {
+
   0%,
   100% {
     box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.5);
     opacity: 1;
   }
+
   50% {
     box-shadow: 0 0 0 6px rgba(52, 211, 153, 0);
     opacity: 0.7;
@@ -361,10 +339,12 @@ main {
 }
 
 @keyframes blink {
+
   0%,
   49% {
     opacity: 1;
   }
+
   50%,
   100% {
     opacity: 0;
@@ -376,6 +356,7 @@ main {
     opacity: 0;
     transform: translateY(-8px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -539,6 +520,7 @@ main {
     opacity: 0;
     transform: translateY(30px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -640,14 +622,12 @@ main {
   position: absolute;
   inset: -14%;
   border-radius: 50%;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(56, 189, 248, 0.32) 70deg,
-    transparent 150deg,
-    rgba(167, 139, 250, 0.32) 240deg,
-    transparent 330deg
-  );
+  background: conic-gradient(from 0deg,
+      transparent 0deg,
+      rgba(56, 189, 248, 0.32) 70deg,
+      transparent 150deg,
+      rgba(167, 139, 250, 0.32) 240deg,
+      transparent 330deg);
   filter: blur(45px);
   animation: spinSlow 22s linear infinite;
   pointer-events: none;
@@ -858,9 +838,11 @@ main {
     opacity: 0;
     transform: translateY(-7px);
   }
+
   40% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
     transform: translateY(9px);
@@ -1135,11 +1117,11 @@ main {
   margin: 0 auto;
 }
 
-.projects-grid > .reveal {
+.projects-grid>.reveal {
   display: flex;
 }
 
-.projects-grid > .reveal > .project-card {
+.projects-grid>.reveal>.project-card {
   width: 100%;
 }
 
@@ -1174,12 +1156,10 @@ main {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    115deg,
-    transparent 32%,
-    rgba(255, 255, 255, 0.075) 46%,
-    transparent 60%
-  );
+  background: linear-gradient(115deg,
+      transparent 32%,
+      rgba(255, 255, 255, 0.075) 46%,
+      transparent 60%);
   transform: translateX(-130%);
   transition: transform 0.9s ease;
   pointer-events: none;
@@ -1242,7 +1222,7 @@ main {
   color: #f8fafc;
 }
 
-.project-card > p {
+.project-card>p {
   margin-bottom: 1.15rem;
   color: var(--muted);
   font-size: 0.95rem;
@@ -1445,7 +1425,7 @@ main {
 
 .social-links {
   display: flex;
-  gap: 0.7rem;
+  gap: 0.9rem;
   margin-top: 0.3rem;
 }
 
@@ -1458,7 +1438,7 @@ main {
   border: 1px solid rgba(148, 163, 184, 0.2);
   background: rgba(255, 255, 255, 0.02);
   color: var(--muted-strong);
-  font-size: 0.85rem;
+  font-size: 0.90rem;
   font-weight: 600;
   text-decoration: none;
   transition: transform 0.3s ease, color 0.3s ease, border-color 0.3s ease,

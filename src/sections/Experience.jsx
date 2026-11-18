@@ -15,6 +15,12 @@ function Experience() {
             place: "Proyectos Personales y Académicos",
             period: "2025 - 2026",
             description: "Desarrollo y despliegue de aplicaciones web completas (SPA), APIs RESTful y soluciones móviles aplicando arquitecturas limpias y control de versiones."
+        },
+        {
+            role: "Soporte Técnico TI (Prácticas Supervisadas)",
+            place: "Prácticas Profesionales", // Puedes reemplazar esto por el nombre de la empresa
+            period: "2026 (2 meses)",
+            description: "Mantenimiento preventivo y correctivo de equipos de cómputo, diagnóstico y reparación de hardware, formateo e instalación de software corporativo, así como configuración básica de red e impresoras."
         }
     ];
 

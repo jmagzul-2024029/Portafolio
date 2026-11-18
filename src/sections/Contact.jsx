@@ -4,14 +4,32 @@ import SectionHeading from '../components/SectionHeading';
 
 const EMAIL = "jorgemagzul10@gmail.com";
 
+// Abre la redacción de Gmail en el navegador (evita el selector de apps de mailto:)
+const gmailComposeUrl = ({ subject = "", body = "" } = {}) => {
+    const params = new URLSearchParams({ view: "cm", fs: "1", to: EMAIL });
+    if (subject) params.set("su", subject);
+    if (body) params.set("body", body);
+    return `https://mail.google.com/mail/?${params.toString()}`;
+};
+
 function Contact() {
-    // Sin backend: abre el cliente de correo con el mensaje ya redactado
     const handleSubmit = (e) => {
         e.preventDefault();
         const data = new FormData(e.currentTarget);
-        const subject = encodeURIComponent(`Contacto desde tu portafolio — ${data.get('name')}`);
-        const body = encodeURIComponent(`${data.get('message')}\n\nDe: ${data.get('name')} (${data.get('email')})`);
-        window.location.href = `mailto:${EMAIL}?subject=${subject}&body=${body}`;
+        const name = data.get('name');
+        const email = data.get('email');
+        const subject = `Contacto desde tu portafolio — ${name}`;
+        const body = `${data.get('message')}\n\nDe: ${name} (${email})`;
+
+        // Un enlace temporal evita que el navegador lo trate como ventana emergente.
+        const link = document.createElement('a');
+        link.href = gmailComposeUrl({ subject, body });
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        link.style.display = 'none';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
     };
 
     return (
@@ -35,7 +53,7 @@ function Contact() {
                     <button type="submit" className="btn btn-primary">
                         Enviar Mensaje <span className="btn-arrow" aria-hidden="true">→</span>
                     </button>
-                    <p className="form-note">Se abrirá tu cliente de correo con el mensaje listo para enviar.</p>
+                    <p className="form-note">Se abrirá Gmail en una nueva pestaña con el mensaje listo para enviar.</p>
                 </Reveal>
 
                 <div className="contact-info">
@@ -61,7 +79,13 @@ function Contact() {
                         </span>
                         <div>
                             <span className="contact-label">Email</span>
-                            <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+                            <a
+                                href={gmailComposeUrl()}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {EMAIL}
+                            </a>
                         </div>
                     </Reveal>
 

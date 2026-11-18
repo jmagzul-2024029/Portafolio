@@ -22,7 +22,7 @@ function Hero() {
                         <a href="#projects" className="btn btn-primary">
                             Ver Proyectos <span className="btn-arrow" aria-hidden="true">→</span>
                         </a>
-                        <a href="/cv.pdf" download className="btn btn-secondary">
+                        <a href="/CV-Jorge-Magzul.pdf" download className="btn btn-secondary">
                             Descargar CV
                         </a>
                     </div>

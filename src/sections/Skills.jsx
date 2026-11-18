@@ -57,7 +57,7 @@ function Skills() {
             title: "Frontend & Mobile",
             icon: "frontend",
             accent: "#38bdf8",
-            skills: ["React", "React Native", "JavaScript (ES6+)", "HTML5", "CSS3", "Tailwind CSS"]
+            skills: ["React", "React Native", "JavaScript", "HTML5", "CSS3", "Tailwind CSS"]
         },
         {
             title: "Backend & Bases de Datos",
@@ -70,12 +70,6 @@ function Skills() {
             icon: "tools",
             accent: "#34d399",
             skills: ["Git / GitHub", "Docker", "VS Code", "Vercel", "Render", "Vite"]
-        },
-        {
-            title: "Idiomas",
-            icon: "languages",
-            accent: "#fbbf24",
-            skills: ["Español (nativo)", "Maya Kaqchikel (nativo)", "Inglés (básico)"]
         }
     ];
 
